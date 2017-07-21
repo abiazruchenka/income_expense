@@ -73,7 +73,7 @@ Rails.application.configure do
       :port       => 587,
       :user_name  => 'abiazruchanka@gmail.com',
       :password   => '14081990Veronika',
-      :domain     => 'income-expense.herokuapp.com',
+      :domain     => 'gmail.com',
       :authentication  => :plain
   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
