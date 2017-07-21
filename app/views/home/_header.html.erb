@@ -1,0 +1,19 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">IncomeExpense</a>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Incomes", "/incomes"  %></li>
+        <li><%= link_to "Expenses", "/expenses"  %></li>
+        <li><%= link_to "Income categories", "/income_categories"  %></li>
+        <li><%= link_to "Expense categories", "/expense_categories"  %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </div>
+</div>

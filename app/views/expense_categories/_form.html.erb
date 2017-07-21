@@ -1,0 +1,25 @@
+<div class="panel panel-default devise-bs new-form">
+  <%= form_with(model: expense_category, local: true) do |form| %>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, id: :expense_category_name,class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit 'create new Expense category' ,  :class => 'btn btn-primary' %>
+        </div>
+      </div>
+      <% if expense_category.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(expense_category.errors.count, "error") %> prohibited this expense_category from being saved:</h2>
+
+            <ul>
+              <% expense_category.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+  <% end %>
+</div>

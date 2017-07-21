@@ -1,0 +1,32 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Incomes</h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Value</th>
+        <th>Income category</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @incomes.each do |income| %>
+          <tr>
+            <td><%= income.value %> $</td>
+            <td><%= income.income_category.name %></td>
+            <td><%= income.description %></td>
+            <td><%= link_to 'Edit', edit_income_path(income) %></td>
+            <td><%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Income ', new_income_path %>
+  <br>
+
+
+</div>

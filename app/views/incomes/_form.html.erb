@@ -1,0 +1,35 @@
+<div class="panel panel-default devise-bs new-form">
+  <%= form_with(model: income, local: true) do |form| %>
+    <div class="panel-body">
+      <div class="form-group">
+        <%= form.label :value %> $
+        <%= form.number_field :value, id: :income_value, :step => "0.01",class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :income_category_id %>
+        <%= form.select :income_category_id,current_user.income_categories.all.collect {|x| [x.name, x.id]} ,{},{class: "form-control", id: :income_income_category_id}   %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, id: :income_description , class: 'form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit 'create new Income',  :class => 'btn btn-primary' %>
+      </div>
+    </div>
+      <% if income.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(income.errors.count, "error") %> prohibited this income from being saved:</h2>
+
+            <ul>
+              <% income.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+<% end %>
+</div>
