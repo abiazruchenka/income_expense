@@ -45,7 +45,7 @@
     <tbody>
     <% @summary.each do |expense| %>
         <tr>
-          <td><strong><%= expense.value %> $</strong></td>
+          <td><strong><%= number_to_currency(expense.value) %></strong></td>
           <% if expense.respond_to?(:expense_category)%>
             <td><strong class="red">Expense <%= expense.expense_category.name %></strong></td>
           <%end%>

@@ -16,7 +16,7 @@
     <tbody>
     <% @expenses.each do |expense| %>
         <tr>
-          <td><%= expense.value %> $</td>
+          <td><%=number_to_currency( expense.value) %></td>
           <td><%= expense.expense_category.name %></td>
           <td><%= expense.description %></td>
           <td><%= expense.date.strftime("%d %B, %Y") if expense.date  %></td>

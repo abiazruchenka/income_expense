@@ -2,8 +2,8 @@
   <%= form_with(model: income, local: true) do |form| %>
     <div class="panel-body">
       <div class="form-group">
-        <%= form.label :value %> $
-        <%= form.number_field :value, id: :income_value, :step => "0.01",class: "form-control" %>
+        <%= form.label :value %>
+        <%= form.number_field :value, id: :income_value, :step => "0.01", :min=>"0.01",class: "form-control currency" %>
       </div>
 
       <div class="form-group">

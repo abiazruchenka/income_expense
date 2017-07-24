@@ -17,7 +17,7 @@
     <tbody>
       <% @incomes.each do |income| %>
           <tr>
-            <td><%= income.value %> $</td>
+            <td><%=number_to_currency(income.value) %></td>
             <td><%= income.income_category.name %></td>
             <td><%= income.description %></td>
             <td><%= income.date.strftime("%d %B, %Y") if income.date  %></td>
