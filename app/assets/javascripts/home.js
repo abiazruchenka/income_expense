@@ -14,11 +14,10 @@
         });
     };
 })(jQuery);
-
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
     $('#reset').on('click', function() {
         $('#select_category').val('0');
         $( "input[name*='datepicker']" ).val( "" );
     })
     $('input.currency-money').currencyInput();
-});
+})
