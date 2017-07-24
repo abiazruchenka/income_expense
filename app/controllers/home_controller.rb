@@ -14,10 +14,11 @@ class HomeController < ApplicationController
         @summary+=income_category.incomes.all
       end
     end
-    @summary.sort_by! { |m| [m.created_at, m.updated_at].max }.reverse!
     if params[:datepicker] && params[:datepicker].present?
-      @summary.select!{ |m| [m.created_at, m.updated_at].max.time.strftime("%m/%d/%Y") == params[:datepicker].to_time.strftime("%m/%d/%Y")}
+      @summary.select!{ |m| (m.date.time.strftime("%m/%d/%Y") if m.date) == params[:datepicker].to_time.strftime("%m/%d/%Y")}
     end
+    @summary.sort_by! { |m| [m.created_at, m.updated_at].max }.reverse!
+    @summary.sort_by! { |m| [m.date ? 0 : 1, m.date] }
   end
 
 end

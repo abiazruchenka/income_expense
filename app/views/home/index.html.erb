@@ -1,11 +1,4 @@
-<script>
-    $(document).ready(function() {
-
-    $('.datepicker').datetimepicker({
-        format: 'dd/mm/yyyy'
-    });
-});</script>
-<strong>Hallo <%=current_user.first_name + ' ' + current_user.last_name%>!</strong>
+<strong>Hello <%=current_user.first_name + ' ' + current_user.last_name%>!</strong>
 
 <div class="container">
   <p id="notice"><%= notice %></p>
@@ -16,7 +9,7 @@
   <div class="form-group">
     <%=label_tag :select_date %>
     <div class='input-group date' id='datetimepicker1'>
-      <input type='text' class="form-control" name="datepicker" />
+      <input type='text' class="form-control" name="datepicker" value="<%=params[:datepicker]%>" />
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -24,17 +17,17 @@
     <script type="text/javascript">
         $(function () {
             $('#datetimepicker1').datetimepicker({
-                format: "MMMM DD,YYYY"
+                format: "DD MMMM,YYYY"
             });
         });
     </script>
   </div>
   <div class="form-group">
     <%=label_tag :select_category %>
-    <%=select_tag(:select_category, options_for_select([['All', 0],['Incomes', 1], ['Expenses', 2]], 0),:class=>"form-control search")%>
+    <%=select_tag(:select_category, options_for_select([['All', 0],['Incomes', 1], ['Expenses', 2]], params[:select_category]),:class=>"form-control search")%>
   </div>
   <div id="reset" class="btn btn-default">Reset</div>
-  <button type="submit" class="btn btn-primary">Send</button>
+  <button type="submit" class="btn btn-primary">Find</button>
 </form>
 
   <table class="table table-striped">
@@ -60,7 +53,7 @@
               <td><strong class="green">Income <%= expense.income_category.name %></strong></td>
           <%end%>
           <td><%= expense.description %></td>
-          <td><%= [expense.created_at, expense.updated_at].max.to_formatted_s(:long)  %></td>
+          <td><%= expense.date.strftime("%d %B, %Y") if expense.date %></td>
         </tr>
     <% end %>
     </tbody>

@@ -15,5 +15,10 @@
   <%= @income.description %>
 </p>
 
+<p>
+  <strong>Date:</strong>
+  <%= @income.date.strftime("%d %B, %Y") if @income.date%>
+</p>
+
 <%= link_to 'Edit', edit_income_path(@income) %> |
 <%= link_to 'Back', incomes_path %>

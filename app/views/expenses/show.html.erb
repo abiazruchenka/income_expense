@@ -15,5 +15,10 @@
   <%= @expense.description %>
 </p>
 
+<p>
+  <strong>Date:</strong>
+  <%= @expense.date.strftime("%d %B, %Y") if @expense.date %>
+</p>
+
 <%= link_to 'Edit', edit_expense_path(@expense) %> |
 <%= link_to 'Back', expenses_path %>
