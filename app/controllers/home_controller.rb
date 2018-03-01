@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
     current_user.income_categories.all.each do|income_category|
       if params[:select_category] != '2'
-        @summary+=income_category.incomes.all
+        @summary +=income_category.incomes.all
       end
     end
     if params[:datepicker] && params[:datepicker].present?
