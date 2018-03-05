@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
   def index
     @expenses = []
     current_user.expense_categories.all.each do|expense_category|
-      @expenses +=expense_category.expenses.all
+      @expenses += expense_category.expenses.all
     end
   end
 
