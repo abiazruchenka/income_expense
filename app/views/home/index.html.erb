@@ -24,7 +24,7 @@
   </div>
   <div class="form-group">
     <%=label_tag :select_category %>
-    <%=select_tag(:select_category, options_for_select([['All', 0],['Incomes', 1], ['Expenses', 2]], params[:select_category]),:class=>"form-control search")%>
+    <%=select_tag(:select_category, options_for_select([['All', 0],['Incomes', 1], ['Expenses', 2]], params[:select_category]), :class=>"form-control search")%>
   </div>
   <div id="reset" class="btn btn-default">Reset</div>
   <button type="submit" class="btn btn-primary">Find</button>
