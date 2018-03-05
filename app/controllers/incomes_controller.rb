@@ -6,7 +6,7 @@ class IncomesController < ApplicationController
   def index
     @incomes = []
     current_user.income_categories.all.each do|income_category|
-      @incomes+=income_category.incomes.all
+      @incomes += income_category.incomes.all
     end
   end
 
