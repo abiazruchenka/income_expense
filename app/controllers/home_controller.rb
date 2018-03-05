@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
 
-    @summary =[]
+    @summary = []
     current_user.expense_categories.all.each do|expense_category|
       if params[:select_category] != '1'
         @summary += expense_category.expenses.all
