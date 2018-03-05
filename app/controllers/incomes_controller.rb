@@ -4,7 +4,7 @@ class IncomesController < ApplicationController
   # GET /incomes
   # GET /incomes.json
   def index
-    @incomes=[]
+    @incomes = []
     current_user.income_categories.all.each do|income_category|
       @incomes+=income_category.incomes.all
     end
