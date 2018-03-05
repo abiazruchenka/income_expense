@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses =[]
+    @expenses = []
     current_user.expense_categories.all.each do|expense_category|
       @expenses+=expense_category.expenses.all
     end
