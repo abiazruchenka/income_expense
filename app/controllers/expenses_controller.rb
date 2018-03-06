@@ -20,7 +20,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
   end
 
-  # GET /expenses/1/edit1
+  # GET /expenses/1/edit
   def edit
   end
 
